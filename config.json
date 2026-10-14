@@ -1,0 +1,40 @@
+{
+  "paths": {
+    "tample": "Tample",
+    "input_text": "input_ru.txt",
+    "tokenizer": "ru_tokenizer.json",
+    "dataset_bin": "dataset.bin",
+    "weights": "recurrent_llm_weights.pt",
+    "checkpoint_prefix": "ckpt_"
+  },
+  "tokenizer": {
+    "vocab_size": 64000,
+    "chunk_size_mb": 5,
+    "special_tokens": ["[UNK]", "[PAD]", "[BOS]", "[EOS]"]
+  },
+  "model": {
+    "hidden_size": 384,
+    "n_layers": 6,
+    "n_heads": 8,
+    "max_seq": 512,
+    "dropout": 0.0,
+    "ff_mult": 2.6
+  },
+  "training": {
+    "batch_size": 8,
+    "seq_len": 128,
+    "learning_rate": 2e-4,
+    "steps": 100000,
+    "log_every": 200,
+    "checkpoint_every": 5000,
+    "grad_clip": 1.0,
+    "adam_beta1": 0.9,
+    "adam_beta2": 0.95,
+    "adam_eps": 1e-08,
+    "seed": 42
+  },
+  "generation": {
+    "temperature": 0.9,
+    "max_new_tokens": 80
+  }
+}
